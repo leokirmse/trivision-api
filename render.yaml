@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: trivision-api
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      # ALLOWED_ORIGIN: domínio(s) do Netlify, separados por vírgula.
+      # Enquanto não tiver o domínio final, deixe vazio = libera "*".
+      - key: ALLOWED_ORIGIN
+        value: ""

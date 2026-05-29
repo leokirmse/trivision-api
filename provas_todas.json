@@ -1,0 +1,2036 @@
+{
+  "2016": {
+    "MT": {
+      "AMARELA": {
+        "regular": {
+          "co_prova": "304",
+          "n": 1496488
+        },
+        "reaplic": {
+          "co_prova": "367",
+          "n": 41184
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "305",
+          "n": 1341448
+        },
+        "reaplic": {
+          "co_prova": "368",
+          "n": 36221
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "303",
+          "n": 1447465
+        },
+        "reaplic": {
+          "co_prova": "366",
+          "n": 39858
+        }
+      },
+      "CINZA": {
+        "regular": {
+          "co_prova": "306",
+          "n": 1403296
+        },
+        "reaplic": {
+          "co_prova": "369",
+          "n": 38084
+        },
+        "ppl": {
+          "co_prova": "310",
+          "n": 745
+        }
+      }
+    },
+    "CN": {
+      "AMARELA": {
+        "regular": {
+          "co_prova": "292",
+          "n": 1433420
+        },
+        "reaplic": {
+          "co_prova": "352",
+          "n": 38593
+        },
+        "ppl": {
+          "co_prova": "332",
+          "n": 118
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "294",
+          "n": 1385828
+        },
+        "reaplic": {
+          "co_prova": "354",
+          "n": 37317
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "291",
+          "n": 1535085
+        },
+        "reaplic": {
+          "co_prova": "351",
+          "n": 42353
+        },
+        "ppl": {
+          "co_prova": "331",
+          "n": 129
+        }
+      },
+      "BRANCA": {
+        "regular": {
+          "co_prova": "293",
+          "n": 1483706
+        },
+        "reaplic": {
+          "co_prova": "353",
+          "n": 41216
+        },
+        "ppl": {
+          "co_prova": "307",
+          "n": 1065
+        }
+      }
+    },
+    "CH": {
+      "AMARELA": {
+        "regular": {
+          "co_prova": "296",
+          "n": 1433420
+        },
+        "reaplic": {
+          "co_prova": "357",
+          "n": 38593
+        },
+        "ppl": {
+          "co_prova": "337",
+          "n": 118
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "298",
+          "n": 1385828
+        },
+        "reaplic": {
+          "co_prova": "359",
+          "n": 37317
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "295",
+          "n": 1535085
+        },
+        "reaplic": {
+          "co_prova": "356",
+          "n": 42353
+        },
+        "ppl": {
+          "co_prova": "336",
+          "n": 129
+        }
+      },
+      "BRANCA": {
+        "regular": {
+          "co_prova": "297",
+          "n": 1483706
+        },
+        "reaplic": {
+          "co_prova": "358",
+          "n": 41216
+        },
+        "ppl": {
+          "co_prova": "308",
+          "n": 1065
+        }
+      }
+    },
+    "LC": {
+      "AMARELA": {
+        "regular": {
+          "co_prova": "300",
+          "n": 1496488
+        },
+        "reaplic": {
+          "co_prova": "362",
+          "n": 41184
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "301",
+          "n": 1341448
+        },
+        "reaplic": {
+          "co_prova": "363",
+          "n": 36221
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "299",
+          "n": 1447465
+        },
+        "reaplic": {
+          "co_prova": "361",
+          "n": 39858
+        }
+      },
+      "CINZA": {
+        "regular": {
+          "co_prova": "302",
+          "n": 1403296
+        },
+        "reaplic": {
+          "co_prova": "364",
+          "n": 38084
+        },
+        "ppl": {
+          "co_prova": "309",
+          "n": 745
+        }
+      }
+    }
+  },
+  "2017": {
+    "MT": {
+      "CINZA": {
+        "regular": {
+          "co_prova": "406",
+          "n": 1107238
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "404",
+          "n": 1113123
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "405",
+          "n": 1107045
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "403",
+          "n": 1107111
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "414",
+          "n": 2416
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "410",
+          "n": 564
+        }
+      }
+    },
+    "CN": {
+      "CINZA": {
+        "regular": {
+          "co_prova": "393",
+          "n": 1107238
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "392",
+          "n": 1113123
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "394",
+          "n": 1107045
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "391",
+          "n": 1107111
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "411",
+          "n": 2416
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "407",
+          "n": 564
+        }
+      }
+    },
+    "CH": {
+      "ROSA": {
+        "regular": {
+          "co_prova": "398",
+          "n": 1171611
+        },
+        "reaplic": {
+          "co_prova": "438",
+          "n": 267
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "395",
+          "n": 1179817
+        },
+        "reaplic": {
+          "co_prova": "435",
+          "n": 275
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "396",
+          "n": 1172847
+        },
+        "reaplic": {
+          "co_prova": "436",
+          "n": 248
+        }
+      },
+      "BRANCA": {
+        "regular": {
+          "co_prova": "397",
+          "n": 1172978
+        },
+        "reaplic": {
+          "co_prova": "437",
+          "n": 242
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "412",
+          "n": 2493
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "408",
+          "n": 587
+        }
+      }
+    },
+    "LC": {
+      "ROSA": {
+        "regular": {
+          "co_prova": "401",
+          "n": 1171611
+        },
+        "reaplic": {
+          "co_prova": "442",
+          "n": 267
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "399",
+          "n": 1179817
+        },
+        "reaplic": {
+          "co_prova": "439",
+          "n": 275
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "400",
+          "n": 1172847
+        },
+        "reaplic": {
+          "co_prova": "440",
+          "n": 248
+        }
+      },
+      "BRANCA": {
+        "regular": {
+          "co_prova": "402",
+          "n": 1172978
+        },
+        "reaplic": {
+          "co_prova": "441",
+          "n": 242
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "413",
+          "n": 2493
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "409",
+          "n": 587
+        }
+      }
+    }
+  },
+  "2018": {
+    "MT": {
+      "CINZA": {
+        "regular": {
+          "co_prova": "462",
+          "n": 974252
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "459",
+          "n": 973429
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "461",
+          "n": 973310
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "460",
+          "n": 981496
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "470",
+          "n": 2052
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "466",
+          "n": 546
+        }
+      }
+    },
+    "CN": {
+      "CINZA": {
+        "regular": {
+          "co_prova": "449",
+          "n": 974252
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "447",
+          "n": 973429
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "450",
+          "n": 973310
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "448",
+          "n": 981496
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "467",
+          "n": 2052
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "463",
+          "n": 546
+        }
+      }
+    },
+    "CH": {
+      "ROSA": {
+        "regular": {
+          "co_prova": "454",
+          "n": 1033871
+        },
+        "reaplic": {
+          "co_prova": "494",
+          "n": 289
+        }
+      },
+      "BRANCA": {
+        "regular": {
+          "co_prova": "453",
+          "n": 1034562
+        },
+        "reaplic": {
+          "co_prova": "493",
+          "n": 253
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "452",
+          "n": 1034414
+        },
+        "reaplic": {
+          "co_prova": "492",
+          "n": 299
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "451",
+          "n": 1041549
+        },
+        "reaplic": {
+          "co_prova": "491",
+          "n": 282
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "468",
+          "n": 2165
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "464",
+          "n": 566
+        }
+      }
+    },
+    "LC": {
+      "ROSA": {
+        "regular": {
+          "co_prova": "457",
+          "n": 1033871
+        },
+        "reaplic": {
+          "co_prova": "498",
+          "n": 289
+        }
+      },
+      "BRANCA": {
+        "regular": {
+          "co_prova": "458",
+          "n": 1034562
+        },
+        "reaplic": {
+          "co_prova": "497",
+          "n": 253
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "456",
+          "n": 1034414
+        },
+        "reaplic": {
+          "co_prova": "496",
+          "n": 299
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "455",
+          "n": 1041549
+        },
+        "reaplic": {
+          "co_prova": "495",
+          "n": 282
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "469",
+          "n": 2165
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "465",
+          "n": 566
+        }
+      }
+    }
+  },
+  "2019": {
+    "MT": {
+      "AMARELA": {
+        "regular": {
+          "co_prova": "516",
+          "n": 925530
+        }
+      },
+      "CINZA": {
+        "regular": {
+          "co_prova": "518",
+          "n": 933535
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "517",
+          "n": 924211
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "515",
+          "n": 924465
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "526",
+          "n": 2089
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "522",
+          "n": 505
+        }
+      }
+    },
+    "CN": {
+      "AMARELA": {
+        "regular": {
+          "co_prova": "504",
+          "n": 925530
+        }
+      },
+      "CINZA": {
+        "regular": {
+          "co_prova": "505",
+          "n": 933535
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "506",
+          "n": 924211
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "503",
+          "n": 924465
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "523",
+          "n": 2089
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "519",
+          "n": 505
+        }
+      }
+    },
+    "CH": {
+      "ROSA": {
+        "regular": {
+          "co_prova": "510",
+          "n": 977435
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "508",
+          "n": 986473
+        }
+      },
+      "BRANCA": {
+        "regular": {
+          "co_prova": "509",
+          "n": 978235
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "507",
+          "n": 978165
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "524",
+          "n": 2206
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "520",
+          "n": 532
+        }
+      }
+    },
+    "LC": {
+      "ROSA": {
+        "regular": {
+          "co_prova": "513",
+          "n": 977435
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "512",
+          "n": 986473
+        }
+      },
+      "BRANCA": {
+        "regular": {
+          "co_prova": "514",
+          "n": 978235
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "511",
+          "n": 978165
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "525",
+          "n": 2206
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "521",
+          "n": 532
+        }
+      }
+    }
+  },
+  "2020": {
+    "MT": {
+      "CINZA": {
+        "regular": {
+          "co_prova": "590",
+          "n": 624878
+        },
+        "reaplic": {
+          "co_prova": "670",
+          "n": 15575
+        },
+        "ppl": {
+          "co_prova": "698",
+          "n": 6655
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "588",
+          "n": 625032
+        },
+        "reaplic": {
+          "co_prova": "668",
+          "n": 15506
+        },
+        "ppl": {
+          "co_prova": "696",
+          "n": 6538
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "587",
+          "n": 624708
+        },
+        "reaplic": {
+          "co_prova": "667",
+          "n": 15643
+        },
+        "ppl": {
+          "co_prova": "695",
+          "n": 6645
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "589",
+          "n": 632575
+        },
+        "reaplic": {
+          "co_prova": "669",
+          "n": 15582
+        },
+        "ppl": {
+          "co_prova": "697",
+          "n": 6583
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "594",
+          "n": 360
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "595",
+          "n": 1160
+        }
+      }
+    },
+    "CN": {
+      "CINZA": {
+        "regular": {
+          "co_prova": "599",
+          "n": 624878
+        },
+        "reaplic": {
+          "co_prova": "679",
+          "n": 15575
+        },
+        "ppl": {
+          "co_prova": "702",
+          "n": 6655
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "598",
+          "n": 625032
+        },
+        "reaplic": {
+          "co_prova": "678",
+          "n": 15506
+        },
+        "ppl": {
+          "co_prova": "700",
+          "n": 6538
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "597",
+          "n": 624708
+        },
+        "reaplic": {
+          "co_prova": "677",
+          "n": 15643
+        },
+        "ppl": {
+          "co_prova": "699",
+          "n": 6645
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "600",
+          "n": 632575
+        },
+        "reaplic": {
+          "co_prova": "680",
+          "n": 15582
+        },
+        "ppl": {
+          "co_prova": "701",
+          "n": 6583
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "604",
+          "n": 360
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "605",
+          "n": 1160
+        }
+      }
+    },
+    "CH": {
+      "BRANCA": {
+        "regular": {
+          "co_prova": "569",
+          "n": 663616
+        },
+        "reaplic": {
+          "co_prova": "649",
+          "n": 15472
+        },
+        "ppl": {
+          "co_prova": "689",
+          "n": 7249
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "568",
+          "n": 663819
+        },
+        "reaplic": {
+          "co_prova": "648",
+          "n": 15499
+        },
+        "ppl": {
+          "co_prova": "688",
+          "n": 7122
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "567",
+          "n": 663654
+        },
+        "reaplic": {
+          "co_prova": "647",
+          "n": 15316
+        },
+        "ppl": {
+          "co_prova": "687",
+          "n": 7237
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "570",
+          "n": 670868
+        },
+        "reaplic": {
+          "co_prova": "650",
+          "n": 15506
+        },
+        "ppl": {
+          "co_prova": "690",
+          "n": 7197
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "574",
+          "n": 380
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "575",
+          "n": 1205
+        }
+      }
+    },
+    "LC": {
+      "BRANCA": {
+        "regular": {
+          "co_prova": "580",
+          "n": 663616
+        },
+        "reaplic": {
+          "co_prova": "660",
+          "n": 15472
+        },
+        "ppl": {
+          "co_prova": "693",
+          "n": 7249
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "578",
+          "n": 663819
+        },
+        "reaplic": {
+          "co_prova": "658",
+          "n": 15499
+        },
+        "ppl": {
+          "co_prova": "692",
+          "n": 7122
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "577",
+          "n": 663654
+        },
+        "reaplic": {
+          "co_prova": "657",
+          "n": 15316
+        },
+        "ppl": {
+          "co_prova": "691",
+          "n": 7237
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "579",
+          "n": 670868
+        },
+        "reaplic": {
+          "co_prova": "659",
+          "n": 15506
+        },
+        "ppl": {
+          "co_prova": "694",
+          "n": 7197
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "584",
+          "n": 380
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "585",
+          "n": 1205
+        }
+      }
+    }
+  },
+  "2021": {
+    "MT": {
+      "ROSA": {
+        "regular": {
+          "co_prova": "901",
+          "n": 534535
+        },
+        "reaplic": {
+          "co_prova": "1037",
+          "n": 16174
+        },
+        "ppl": {
+          "co_prova": "1009",
+          "n": 8474
+        }
+      },
+      "CINZA": {
+        "regular": {
+          "co_prova": "902",
+          "n": 534778
+        },
+        "reaplic": {
+          "co_prova": "1038",
+          "n": 16228
+        },
+        "ppl": {
+          "co_prova": "1010",
+          "n": 8623
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "900",
+          "n": 540520
+        },
+        "reaplic": {
+          "co_prova": "1036",
+          "n": 16489
+        },
+        "ppl": {
+          "co_prova": "1008",
+          "n": 8514
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "899",
+          "n": 533925
+        },
+        "reaplic": {
+          "co_prova": "1035",
+          "n": 16083
+        },
+        "ppl": {
+          "co_prova": "1007",
+          "n": 8585
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "907",
+          "n": 874
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "906",
+          "n": 311
+        }
+      }
+    },
+    "CN": {
+      "ROSA": {
+        "regular": {
+          "co_prova": "912",
+          "n": 534535
+        },
+        "reaplic": {
+          "co_prova": "1048",
+          "n": 16174
+        },
+        "ppl": {
+          "co_prova": "1013",
+          "n": 8474
+        }
+      },
+      "CINZA": {
+        "regular": {
+          "co_prova": "911",
+          "n": 534778
+        },
+        "reaplic": {
+          "co_prova": "1047",
+          "n": 16228
+        },
+        "ppl": {
+          "co_prova": "1014",
+          "n": 8623
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "910",
+          "n": 540520
+        },
+        "reaplic": {
+          "co_prova": "1046",
+          "n": 16489
+        },
+        "ppl": {
+          "co_prova": "1012",
+          "n": 8514
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "909",
+          "n": 533925
+        },
+        "reaplic": {
+          "co_prova": "1045",
+          "n": 16083
+        },
+        "ppl": {
+          "co_prova": "1011",
+          "n": 8585
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "917",
+          "n": 874
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "916",
+          "n": 311
+        }
+      }
+    },
+    "CH": {
+      "BRANCA": {
+        "regular": {
+          "co_prova": "881",
+          "n": 563999
+        },
+        "reaplic": {
+          "co_prova": "1017",
+          "n": 18778
+        },
+        "ppl": {
+          "co_prova": "1001",
+          "n": 9250
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "882",
+          "n": 563957
+        },
+        "reaplic": {
+          "co_prova": "1018",
+          "n": 18693
+        },
+        "ppl": {
+          "co_prova": "1002",
+          "n": 9180
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "880",
+          "n": 571150
+        },
+        "reaplic": {
+          "co_prova": "1016",
+          "n": 19114
+        },
+        "ppl": {
+          "co_prova": "1000",
+          "n": 9337
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "879",
+          "n": 563554
+        },
+        "reaplic": {
+          "co_prova": "1015",
+          "n": 18725
+        },
+        "ppl": {
+          "co_prova": "999",
+          "n": 9216
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "887",
+          "n": 916
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "886",
+          "n": 324
+        }
+      }
+    },
+    "LC": {
+      "BRANCA": {
+        "regular": {
+          "co_prova": "892",
+          "n": 563999
+        },
+        "reaplic": {
+          "co_prova": "1028",
+          "n": 18778
+        },
+        "ppl": {
+          "co_prova": "1005",
+          "n": 9250
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "891",
+          "n": 563957
+        },
+        "reaplic": {
+          "co_prova": "1027",
+          "n": 18693
+        },
+        "ppl": {
+          "co_prova": "1006",
+          "n": 9180
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "890",
+          "n": 571150
+        },
+        "reaplic": {
+          "co_prova": "1026",
+          "n": 19114
+        },
+        "ppl": {
+          "co_prova": "1004",
+          "n": 9337
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "889",
+          "n": 563554
+        },
+        "reaplic": {
+          "co_prova": "1025",
+          "n": 18725
+        },
+        "ppl": {
+          "co_prova": "1003",
+          "n": 9216
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "897",
+          "n": 916
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "896",
+          "n": 324
+        }
+      }
+    }
+  },
+  "2022": {
+    "MT": {
+      "CINZA": {
+        "regular": {
+          "co_prova": "1078",
+          "n": 586191
+        },
+        "reaplic": {
+          "co_prova": "1186",
+          "n": 7367
+        },
+        "ppl": {
+          "co_prova": "1158",
+          "n": 540
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "1077",
+          "n": 578711
+        },
+        "reaplic": {
+          "co_prova": "1185",
+          "n": 7502
+        },
+        "ppl": {
+          "co_prova": "1157",
+          "n": 501
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "1076",
+          "n": 578696
+        },
+        "reaplic": {
+          "co_prova": "1184",
+          "n": 7348
+        },
+        "ppl": {
+          "co_prova": "1156",
+          "n": 533
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "1075",
+          "n": 578780
+        },
+        "reaplic": {
+          "co_prova": "1183",
+          "n": 7425
+        },
+        "ppl": {
+          "co_prova": "1155",
+          "n": 513
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "1083",
+          "n": 949
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "1082",
+          "n": 339
+        }
+      }
+    },
+    "CN": {
+      "CINZA": {
+        "regular": {
+          "co_prova": "1087",
+          "n": 586191
+        },
+        "reaplic": {
+          "co_prova": "1190",
+          "n": 7367
+        },
+        "ppl": {
+          "co_prova": "1167",
+          "n": 540
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "1088",
+          "n": 578711
+        },
+        "reaplic": {
+          "co_prova": "1189",
+          "n": 7502
+        },
+        "ppl": {
+          "co_prova": "1168",
+          "n": 501
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "1086",
+          "n": 578696
+        },
+        "reaplic": {
+          "co_prova": "1188",
+          "n": 7348
+        },
+        "ppl": {
+          "co_prova": "1166",
+          "n": 533
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "1085",
+          "n": 578780
+        },
+        "reaplic": {
+          "co_prova": "1187",
+          "n": 7425
+        },
+        "ppl": {
+          "co_prova": "1165",
+          "n": 513
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "1093",
+          "n": 949
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "1092",
+          "n": 339
+        }
+      }
+    },
+    "CH": {
+      "AMARELA": {
+        "regular": {
+          "co_prova": "1056",
+          "n": 612198
+        },
+        "reaplic": {
+          "co_prova": "1176",
+          "n": 8037
+        },
+        "ppl": {
+          "co_prova": "1136",
+          "n": 244
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "1058",
+          "n": 612395
+        },
+        "reaplic": {
+          "co_prova": "1178",
+          "n": 8123
+        },
+        "ppl": {
+          "co_prova": "1138",
+          "n": 213
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "1055",
+          "n": 613221
+        },
+        "reaplic": {
+          "co_prova": "1175",
+          "n": 8000
+        },
+        "ppl": {
+          "co_prova": "1135",
+          "n": 243
+        }
+      },
+      "BRANCA": {
+        "regular": {
+          "co_prova": "1057",
+          "n": 621146
+        },
+        "reaplic": {
+          "co_prova": "1177",
+          "n": 8034
+        },
+        "ppl": {
+          "co_prova": "1137",
+          "n": 237
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "1063",
+          "n": 1002
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "1062",
+          "n": 349
+        }
+      }
+    },
+    "LC": {
+      "AMARELA": {
+        "regular": {
+          "co_prova": "1066",
+          "n": 612198
+        },
+        "reaplic": {
+          "co_prova": "1180",
+          "n": 8037
+        },
+        "ppl": {
+          "co_prova": "1146",
+          "n": 244
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "1067",
+          "n": 612395
+        },
+        "reaplic": {
+          "co_prova": "1182",
+          "n": 8123
+        },
+        "ppl": {
+          "co_prova": "1147",
+          "n": 213
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "1065",
+          "n": 613221
+        },
+        "reaplic": {
+          "co_prova": "1179",
+          "n": 8000
+        },
+        "ppl": {
+          "co_prova": "1145",
+          "n": 243
+        }
+      },
+      "BRANCA": {
+        "regular": {
+          "co_prova": "1068",
+          "n": 621146
+        },
+        "reaplic": {
+          "co_prova": "1181",
+          "n": 8034
+        },
+        "ppl": {
+          "co_prova": "1148",
+          "n": 237
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "1073",
+          "n": 1002
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "1072",
+          "n": 349
+        }
+      }
+    }
+  },
+  "2023": {
+    "MT": {
+      "AZUL": {
+        "regular": {
+          "co_prova": "1211",
+          "n": 668204
+        },
+        "reaplic": {
+          "co_prova": "1291",
+          "n": 1297
+        }
+      },
+      "CINZA": {
+        "regular": {
+          "co_prova": "1214",
+          "n": 669321
+        },
+        "reaplic": {
+          "co_prova": "1294",
+          "n": 1313
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "1212",
+          "n": 668909
+        },
+        "reaplic": {
+          "co_prova": "1292",
+          "n": 1293
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "1213",
+          "n": 674819
+        },
+        "reaplic": {
+          "co_prova": "1215",
+          "n": 3319
+        },
+        "ppl": {
+          "co_prova": "1293",
+          "n": 1301
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "1218",
+          "n": 673
+        },
+        "reaplic": {
+          "co_prova": "1217",
+          "n": 120
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "1219",
+          "n": 1212
+        }
+      }
+    },
+    "CN": {
+      "AZUL": {
+        "regular": {
+          "co_prova": "1221",
+          "n": 668204
+        },
+        "reaplic": {
+          "co_prova": "1301",
+          "n": 1297
+        }
+      },
+      "CINZA": {
+        "regular": {
+          "co_prova": "1224",
+          "n": 669321
+        },
+        "reaplic": {
+          "co_prova": "1303",
+          "n": 1313
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "1222",
+          "n": 668909
+        },
+        "reaplic": {
+          "co_prova": "1302",
+          "n": 1293
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "1223",
+          "n": 674819
+        },
+        "reaplic": {
+          "co_prova": "1225",
+          "n": 3319
+        },
+        "ppl": {
+          "co_prova": "1304",
+          "n": 1301
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "1228",
+          "n": 673
+        },
+        "reaplic": {
+          "co_prova": "1227",
+          "n": 120
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "1229",
+          "n": 1212
+        }
+      }
+    },
+    "CH": {
+      "BRANCA": {
+        "regular": {
+          "co_prova": "1193",
+          "n": 701519
+        },
+        "reaplic": {
+          "co_prova": "1273",
+          "n": 1295
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "1192",
+          "n": 701475
+        },
+        "reaplic": {
+          "co_prova": "1272",
+          "n": 1290
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "1191",
+          "n": 701099
+        },
+        "reaplic": {
+          "co_prova": "1271",
+          "n": 1274
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "1194",
+          "n": 707167
+        },
+        "reaplic": {
+          "co_prova": "1195",
+          "n": 3471
+        },
+        "ppl": {
+          "co_prova": "1274",
+          "n": 1272
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "1198",
+          "n": 704
+        },
+        "reaplic": {
+          "co_prova": "1197",
+          "n": 125
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "1199",
+          "n": 1273
+        }
+      }
+    },
+    "LC": {
+      "BRANCA": {
+        "regular": {
+          "co_prova": "1204",
+          "n": 701518
+        },
+        "reaplic": {
+          "co_prova": "1284",
+          "n": 1295
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "1202",
+          "n": 701475
+        },
+        "reaplic": {
+          "co_prova": "1282",
+          "n": 1290
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "1201",
+          "n": 701099
+        },
+        "reaplic": {
+          "co_prova": "1281",
+          "n": 1274
+        }
+      },
+      "ROSA": {
+        "regular": {
+          "co_prova": "1203",
+          "n": 707168
+        },
+        "reaplic": {
+          "co_prova": "1205",
+          "n": 3471
+        },
+        "ppl": {
+          "co_prova": "1283",
+          "n": 1272
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "1208",
+          "n": 704
+        },
+        "reaplic": {
+          "co_prova": "1207",
+          "n": 125
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "1209",
+          "n": 1273
+        }
+      }
+    }
+  },
+  "2024": {
+    "MT": {
+      "AMARELA": {
+        "regular": {
+          "co_prova": "1408",
+          "n": 747639
+        },
+        "reaplic": {
+          "co_prova": "1364",
+          "n": 59
+        }
+      },
+      "CINZA": {
+        "regular": {
+          "co_prova": "1410",
+          "n": 747330
+        },
+        "reaplic": {
+          "co_prova": "1366",
+          "n": 64
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "1407",
+          "n": 746854
+        },
+        "reaplic": {
+          "co_prova": "1363",
+          "n": 58
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "1409",
+          "n": 756397
+        },
+        "reaplic": {
+          "co_prova": "1411",
+          "n": 3282
+        },
+        "ppl": {
+          "co_prova": "1412",
+          "n": 701
+        }
+      },
+      "ROXA": {
+        "regular": {
+          "co_prova": "1415",
+          "n": 1225
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "1414",
+          "n": 1319
+        }
+      }
+    },
+    "CN": {
+      "AMARELA": {
+        "regular": {
+          "co_prova": "1420",
+          "n": 747639
+        },
+        "reaplic": {
+          "co_prova": "1374",
+          "n": 59
+        }
+      },
+      "CINZA": {
+        "regular": {
+          "co_prova": "1422",
+          "n": 747330
+        },
+        "reaplic": {
+          "co_prova": "1375",
+          "n": 64
+        }
+      },
+      "AZUL": {
+        "regular": {
+          "co_prova": "1419",
+          "n": 746854
+        },
+        "reaplic": {
+          "co_prova": "1373",
+          "n": 58
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "1421",
+          "n": 756397
+        },
+        "reaplic": {
+          "co_prova": "1423",
+          "n": 3282
+        },
+        "ppl": {
+          "co_prova": "1424",
+          "n": 701
+        }
+      },
+      "ROXA": {
+        "regular": {
+          "co_prova": "1427",
+          "n": 1225
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "1426",
+          "n": 1319
+        }
+      }
+    },
+    "CH": {
+      "AZUL": {
+        "regular": {
+          "co_prova": "1383",
+          "n": 788173
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "1384",
+          "n": 787563
+        }
+      },
+      "BRANCA": {
+        "regular": {
+          "co_prova": "1385",
+          "n": 787903
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "1386",
+          "n": 797364
+        },
+        "reaplic": {
+          "co_prova": "1387",
+          "n": 3505
+        },
+        "ppl": {
+          "co_prova": "1388",
+          "n": 745
+        }
+      },
+      "ROXA": {
+        "regular": {
+          "co_prova": "1391",
+          "n": 1289
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "1390",
+          "n": 1413
+        }
+      }
+    },
+    "LC": {
+      "AZUL": {
+        "regular": {
+          "co_prova": "1395",
+          "n": 788173
+        }
+      },
+      "AMARELA": {
+        "regular": {
+          "co_prova": "1396",
+          "n": 787563
+        }
+      },
+      "BRANCA": {
+        "regular": {
+          "co_prova": "1398",
+          "n": 787903
+        }
+      },
+      "VERDE": {
+        "regular": {
+          "co_prova": "1397",
+          "n": 797364
+        },
+        "reaplic": {
+          "co_prova": "1399",
+          "n": 3505
+        },
+        "ppl": {
+          "co_prova": "1400",
+          "n": 745
+        }
+      },
+      "ROXA": {
+        "regular": {
+          "co_prova": "1403",
+          "n": 1289
+        }
+      },
+      "LARANJA": {
+        "regular": {
+          "co_prova": "1402",
+          "n": 1413
+        }
+      }
+    }
+  }
+}
