@@ -391,10 +391,26 @@ def post_estimar(req: EstimarRequest):
         raise HTTPException(status_code=404, detail=erro)
 
     if len(req.vetor) != len(b_por_pos):
-        raise HTTPException(
-            status_code=400,
-            detail=f"Vetor tem {len(req.vetor)} chars; prova requer {len(b_por_pos)}"
-        )
+        # Caso comum em LC: frontend envia vetor com apenas as posições
+        # aplicáveis (40 comuns + 5 da língua escolhida = 45), mas a estrutura
+        # interna tem 50 (5 ing + 5 esp + 40 comuns). Expande inserindo '9'
+        # (não aplicável) nas posições da outra língua.
+        if (req.area == "LC"
+                and mascara_auto
+                and len(req.vetor) == mascara_auto.count("1")
+                and len(mascara_auto) == len(b_por_pos)):
+            # Reconstrói vetor de 50 chars usando a máscara: '9' onde a posição
+            # não é aplicável, e os chars do vetor recebido nas demais.
+            expandido = []
+            it = iter(req.vetor)
+            for m in mascara_auto:
+                expandido.append(next(it) if m == "1" else "9")
+            req.vetor = "".join(expandido)
+        else:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Vetor tem {len(req.vetor)} chars; prova requer {len(b_por_pos)}"
+            )
 
     mascara = req.mascara or (mascara_auto if req.area == "LC" else None)
 
