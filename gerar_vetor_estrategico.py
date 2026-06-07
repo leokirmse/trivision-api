@@ -1,200 +1,170 @@
 """
-gerar_vetor_estrategico.py
-──────────────────────────
-Gera vetores binários simulando padrões estratégicos de resolução,
-preservando a ordem oficial da prova.
+gerar_vetor_estrategico_v2.py
+------------------------------
+v2: usa mapeamento_canonico_v6.json para buscar itens (b, tp_ling, co_item, gab),
+em vez de re-parsear ITENS_PROVA_<ano>.csv.
 
-Modos:
-  faceis      → marca as n questões com MENOR b
-  dificeis    → marca as n questões com MAIOR b
-  aleatorio   → marca n questões aleatórias
-  intervalo-b → marca questões dentro de uma faixa de b (--b-min / --b-max)
-  coerente    → padrão coerente: prioriza b baixos, garante alta coerência TRI
-  incoerente  → padrão incoerente: prioriza b altos com algumas inversões
+Mantém modos identicos: faceis, dificeis, aleatorio, intervalo-b, coerente, incoerente.
 
-Saída:
-  - vetor binário (45 ou 50 chars) na ordem oficial da prova
-  - posições marcadas (1..N)
-  - parâmetro b de cada questão marcada
-  - média de b dos acertos
-  - comando pronto para o estimador_nota.py
-
-LC: vetor de 50 com 5 inglês + 5 espanhol + 40 comuns.
-Por padrão considera Inglês como língua escolhida (--lingua ing|esp).
-A máscara é gerada automaticamente.
-
-USO:
-    python gerar_vetor_estrategico.py --area MT --ano 2023 --tipo regular --cor AMARELA --modo faceis --n 21
+IMPORTANTE: o vetor produzido fica na ordem "da cor" daquele candidato,
+para enviar para a API exatamente como o microdado vem (a API faz a
+canonicalizacao internamente).
 """
 
-import argparse, csv, json, os, random, sys
+import argparse, json, os, random, sys
 
 
-# ───────────────────────────────────────────────────────────────────────
-#  CARREGAMENTO DOS ITENS DA PROVA
-# ───────────────────────────────────────────────────────────────────────
+_MAPEAMENTO_PATH = "mapeamento_canonico_v6.json"
+_MAPEAMENTO_CACHE = None
+
+
+def configurar(mapeamento_path="mapeamento_canonico_v6.json"):
+    global _MAPEAMENTO_PATH, _MAPEAMENTO_CACHE
+    _MAPEAMENTO_PATH = mapeamento_path
+    _MAPEAMENTO_CACHE = None
+
+
+def _carregar_mapeamento():
+    global _MAPEAMENTO_CACHE
+    if _MAPEAMENTO_CACHE is None:
+        with open(_MAPEAMENTO_PATH, encoding="utf-8") as f:
+            _MAPEAMENTO_CACHE = json.load(f)
+    return _MAPEAMENTO_CACHE
+
 
 def norm_tipo(t):
     t = t.lower()
-    if t in ("reaplic","reaplicacao","reaplicação"): return "reaplicacao"
+    if t in ("reaplic", "reaplicacao", "reaplicação"): return "regular"
     if t == "ppl": return "ppl"
     return "regular"
 
 
+def _resolver_chave(area, ano, tipo, lingua="ing"):
+    tipo_n = norm_tipo(tipo)
+    if area == "LC":
+        ling = (lingua or "ing").lower()
+        if ling not in ("ing", "esp"): ling = "ing"
+        return f"{area}_{ano}_{tipo_n}_{ling}"
+    return f"{area}_{ano}_{tipo_n}"
+
+
 def carregar_itens_prova(area, ano, tipo, cor, lingua="ing"):
     """
-    Retorna lista [(pos_oficial, b, tp_ling, co_item)] na ordem oficial (1..N).
-    Para LC, monta a estrutura de 50 itens (5 ing + 5 esp + 40 comuns).
-    A máscara é construída em paralelo.
+    Retorna (itens_na_ordem_da_cor, mascara, erro).
+
+    itens: lista [(b, tp_ling, co_item)] na ORDEM ORIGINAL do TX_RESPOSTAS
+           da cor escolhida (45 ou 50 itens).
+    mascara: string '0'/'1' do mesmo tamanho. Em LC ant 2016-2021 (50 itens),
+             os 5 itens da outra lingua tem mascara=0.
     """
-    if not os.path.exists("provas_todas.json"):
-        return None, None, "provas_todas.json não encontrado"
-    with open("provas_todas.json", encoding="utf-8") as f:
-        provas = json.load(f)
+    try:
+        mapeamento = _carregar_mapeamento()
+    except FileNotFoundError as e:
+        return None, None, str(e)
 
-    # Encontra co_prova
-    cores_ano = provas.get(str(ano), {}).get(area, {})
-    co_prova = None
-    for c, tipos in cores_ano.items():
-        if c.upper() != cor.upper(): continue
-        for t, info in tipos.items():
-            if norm_tipo(t) == norm_tipo(tipo):
-                co_prova = str(info.get("co_prova","")).strip()
+    chave = _resolver_chave(area, ano, tipo, lingua)
+    if chave not in mapeamento:
+        return None, None, f"chave {chave} sem mapeamento"
+
+    mapa = mapeamento[chave]
+    cores = mapa.get("cores", {})
+    cor_upper = (cor or "").upper()
+    info_cor = cores.get(cor_upper)
+    if info_cor is None:
+        # Procura case-insensitive
+        for c_k, c_v in cores.items():
+            if c_k.upper() == cor_upper:
+                info_cor = c_v
                 break
-    if not co_prova:
-        return None, None, f"co_prova não encontrado para {area} {ano} {tipo} {cor}"
+        if info_cor is None:
+            return None, None, f"cor {cor} nao mapeada em {chave}. Disponiveis: {list(cores.keys())}"
 
-    path = os.path.join("dados_inep", f"ITENS_PROVA_{ano}.csv")
-    if not os.path.exists(path):
-        return None, None, f"{path} não encontrado"
+    itens_canon = mapa["itens_canonicos"]
+    perm = info_cor.get("perm_resp") or info_cor.get("perm")
+    len_vetor = info_cor.get("len_vetor_microdado") or info_cor.get("n_itens_originais")
 
-    with open(path, encoding="latin-1") as f:
-        sep = ";" if ";" in f.readline() else ","
+    # Reconstroi a lista de itens NA ORDEM DA COR (inversa da perm)
+    # perm[i_canon] = posicao no vetor original da cor onde esta o item canonico i_canon
+    # Logo: itens_na_ordem_cor[pos_vetor] = item_canonico que la esta
+    itens_na_ordem_cor = [None] * len_vetor
+    for i_canon, p in enumerate(perm):
+        if p is None: continue
+        if 0 <= p < len_vetor:
+            itens_na_ordem_cor[p] = itens_canon[i_canon]
 
-    itens_brutos = []  # (CO_POSICAO, b, tp_ling, co_item)
-    with open(path, encoding="latin-1", newline="") as f:
-        for row in csv.DictReader(f, delimiter=sep):
-            if str(row.get("CO_PROVA","")).strip() != co_prova: continue
-            try: pos = int(row.get("CO_POSICAO",0) or 0)
-            except: pos = 0
-            try:
-                b = float(str(row.get("NU_PARAM_B","")).replace(",","."))
-                if not (-5 <= b <= 6): b = None
-            except: b = None
-            tp_ling = row.get("TP_LINGUA","").strip()
-            co_item = str(row.get("CO_ITEM","")).strip()
-            itens_brutos.append((pos, b, tp_ling, co_item))
+    # Constroi (b, tp_ling, co_item) por posicao
+    itens_out = []
+    mascara_out = []
+    for pos, ic in enumerate(itens_na_ordem_cor):
+        if ic is None:
+            # Posicao da OUTRA lingua em LC anos antigos (resp=50 mas mapa filtra)
+            itens_out.append((None, "0_ou_1", "?"))
+            mascara_out.append("0")
+        else:
+            try: b = float(ic["b"]) if ic["b"] else None
+            except (ValueError, TypeError): b = None
+            itens_out.append((b, ic.get("tp_ling", ""), ic.get("co_item", "")))
+            mascara_out.append("1")
 
-    if not itens_brutos:
-        return None, None, "nenhum item encontrado para esse co_prova"
-
-    # Monta lista oficial + máscara
-    if area == "LC":
-        ingles   = sorted([t for t in itens_brutos if t[2] == "0"], key=lambda x: x[0])[:5]
-        espanhol = sorted([t for t in itens_brutos if t[2] == "1"], key=lambda x: x[0])[:5]
-        comuns   = sorted([t for t in itens_brutos if t[2] not in ("0","1")], key=lambda x: x[0])[:40]
-
-        itens_oficial = []
-        mascara = []
-        # Posições 1-5: Inglês — aplicáveis se lingua=='ing'
-        for _, b, _, ci in ingles:
-            itens_oficial.append((b, "0", ci))
-            mascara.append("1" if lingua == "ing" else "0")
-        # Posições 6-10: Espanhol — aplicáveis se lingua=='esp'
-        for _, b, _, ci in espanhol:
-            itens_oficial.append((b, "1", ci))
-            mascara.append("1" if lingua == "esp" else "0")
-        # Posições 11-50: comuns
-        for _, b, _, ci in comuns:
-            itens_oficial.append((b, "", ci))
-            mascara.append("1")
-        return itens_oficial, "".join(mascara), None
-    else:
-        itens_brutos.sort(key=lambda x: x[0])
-        itens_oficial = [(b, "", ci) for _, b, _, ci in itens_brutos]
-        mascara = "1" * len(itens_oficial)
-        return itens_oficial, mascara, None
+    return itens_out, "".join(mascara_out), None
 
 
-# ───────────────────────────────────────────────────────────────────────
-#  GERAÇÃO DE VETOR POR MODO
-# ───────────────────────────────────────────────────────────────────────
+# ── Geradores de vetor (identicos ao antigo) ────────────────────────
 
 def _indices_aplicaveis_com_b(itens, mascara):
-    """Retorna lista de (idx, b) onde máscara=1 e b é válido."""
     return [(i, b) for i, ((b, _, _), m) in enumerate(zip(itens, mascara))
             if m == "1" and b is not None]
 
 
 def gerar_faceis(itens, mascara, n):
-    aplicaveis = _indices_aplicaveis_com_b(itens, mascara)
-    ordenados = sorted(aplicaveis, key=lambda x: x[1])  # menor b primeiro
+    aplic = _indices_aplicaveis_com_b(itens, mascara)
+    ordenados = sorted(aplic, key=lambda x: x[1])
     return {idx for idx, _ in ordenados[:n]}
 
 
 def gerar_dificeis(itens, mascara, n):
-    aplicaveis = _indices_aplicaveis_com_b(itens, mascara)
-    ordenados = sorted(aplicaveis, key=lambda x: -x[1])  # maior b primeiro
+    aplic = _indices_aplicaveis_com_b(itens, mascara)
+    ordenados = sorted(aplic, key=lambda x: -x[1])
     return {idx for idx, _ in ordenados[:n]}
 
 
 def gerar_aleatorio(itens, mascara, n, seed=None):
-    aplicaveis = _indices_aplicaveis_com_b(itens, mascara)
+    aplic = _indices_aplicaveis_com_b(itens, mascara)
     rng = random.Random(seed) if seed is not None else random
-    escolhidos = rng.sample(aplicaveis, min(n, len(aplicaveis)))
+    escolhidos = rng.sample(aplic, min(n, len(aplic)))
     return {idx for idx, _ in escolhidos}
 
 
 def gerar_intervalo_b(itens, mascara, b_min, b_max):
-    aplicaveis = _indices_aplicaveis_com_b(itens, mascara)
-    return {idx for idx, b in aplicaveis if b_min <= b <= b_max}
+    aplic = _indices_aplicaveis_com_b(itens, mascara)
+    return {idx for idx, b in aplic if b_min <= b <= b_max}
 
 
 def gerar_coerente(itens, mascara, n):
-    """
-    Padrão coerente: prioriza b baixos. Equivalente a 'faceis' puro,
-    sem ruído — coerência TRI máxima.
-    """
     return gerar_faceis(itens, mascara, n)
 
 
 def gerar_incoerente(itens, mascara, n, seed=None):
-    """
-    Padrão incoerente: marca preferencialmente os b mais ALTOS,
-    com algum ruído de questões médias para evidenciar inversões.
-    Resultado: coerência TRI baixa.
-    """
-    aplicaveis = _indices_aplicaveis_com_b(itens, mascara)
-    aplicaveis_ord = sorted(aplicaveis, key=lambda x: -x[1])  # difícil primeiro
+    aplic = _indices_aplicaveis_com_b(itens, mascara)
+    aplic_ord = sorted(aplic, key=lambda x: -x[1])
     rng = random.Random(seed) if seed is not None else random
-
-    # 80% dos n vêm das mais difíceis; 20% sorteados das medianas (b ∈ [0.5, 1.5])
-    n_dif  = int(round(n * 0.8))
-    n_med  = n - n_dif
-    escolhidos = [idx for idx, _ in aplicaveis_ord[:n_dif]]
-
+    n_dif = int(round(n * 0.8)); n_med = n - n_dif
+    escolhidos = [idx for idx, _ in aplic_ord[:n_dif]]
     if n_med > 0:
-        medianas = [idx for idx, b in aplicaveis if 0.5 <= b <= 1.5 and idx not in escolhidos]
+        medianas = [idx for idx, b in aplic if 0.5 <= b <= 1.5 and idx not in escolhidos]
         if medianas:
             escolhidos.extend(rng.sample(medianas, min(n_med, len(medianas))))
-
     return set(escolhidos)
 
 
-# ───────────────────────────────────────────────────────────────────────
-#  MONTAGEM DO VETOR
-# ───────────────────────────────────────────────────────────────────────
-
 def montar_vetor(itens, marcados_idx):
-    """Constrói vetor binário com 1 nos índices marcados."""
     return "".join("1" if i in marcados_idx else "0" for i in range(len(itens)))
 
 
 def resumo(itens, mascara, marcados_idx):
-    """Estatísticas do vetor gerado."""
-    bs_marcados = [itens[i][0] for i in marcados_idx if itens[i][0] is not None]
-    media_b = round(sum(bs_marcados)/len(bs_marcados), 4) if bs_marcados else 0.0
-    posicoes_1based = sorted(i+1 for i in marcados_idx)
+    bs = [itens[i][0] for i in marcados_idx if itens[i][0] is not None]
+    media_b = round(sum(bs)/len(bs), 4) if bs else 0.0
+    pos_1based = sorted(i+1 for i in marcados_idx)
     questoes = []
     for i in sorted(marcados_idx):
         b, tp_ling, ci = itens[i]
@@ -206,67 +176,52 @@ def resumo(itens, mascara, marcados_idx):
         })
     return {
         "n_marcadas":     len(marcados_idx),
-        "posicoes":       posicoes_1based,
+        "posicoes":       pos_1based,
         "questoes":       questoes,
         "media_b_acertos": media_b,
     }
 
 
-# ───────────────────────────────────────────────────────────────────────
-#  CLI
-# ───────────────────────────────────────────────────────────────────────
+# ── CLI (igual antigo, agora rapido) ────────────────────────────────
 
 def main():
-    p = argparse.ArgumentParser(description="Gera vetor binário estratégico")
+    p = argparse.ArgumentParser(description="Gera vetor estrategico v2")
     p.add_argument("--area",  required=True, choices=["MT","CN","CH","LC"])
     p.add_argument("--ano",   required=True, type=int)
     p.add_argument("--tipo",  required=True, choices=["regular","reaplicacao","ppl"])
     p.add_argument("--cor",   required=True)
     p.add_argument("--modo",  required=True,
                    choices=["faceis","dificeis","aleatorio","intervalo-b","coerente","incoerente"])
-    p.add_argument("--n", type=int, default=None,
-                   help="Nº de questões a marcar (obrigatório exceto em intervalo-b)")
-    p.add_argument("--b-min", type=float, help="Limite inferior de b (intervalo-b)")
-    p.add_argument("--b-max", type=float, help="Limite superior de b (intervalo-b)")
-    p.add_argument("--lingua", choices=["ing","esp"], default="ing",
-                   help="Língua estrangeira escolhida (LC)")
-    p.add_argument("--seed",  type=int, help="Seed para aleatório")
-    p.add_argument("--json",  action="store_true", help="Saída JSON")
+    p.add_argument("--n", type=int, default=None)
+    p.add_argument("--b-min", type=float)
+    p.add_argument("--b-max", type=float)
+    p.add_argument("--lingua", choices=["ing","esp"], default="ing")
+    p.add_argument("--seed",  type=int)
+    p.add_argument("--json",  action="store_true")
     args = p.parse_args()
 
     if args.modo == "intervalo-b" and (args.b_min is None or args.b_max is None):
-        print("[ERRO] --b-min e --b-max são obrigatórios em intervalo-b"); sys.exit(1)
+        print("[ERRO] --b-min e --b-max obrigatorios"); sys.exit(1)
     if args.modo != "intervalo-b" and args.n is None:
-        print(f"[ERRO] --n é obrigatório no modo {args.modo}"); sys.exit(1)
+        print(f"[ERRO] --n obrigatorio em {args.modo}"); sys.exit(1)
 
-    itens, mascara, erro = carregar_itens_prova(args.area, args.ano, args.tipo, args.cor, args.lingua)
+    itens, mascara, erro = carregar_itens_prova(
+        args.area, args.ano, args.tipo, args.cor, args.lingua)
     if erro:
         print(f"[ERRO] {erro}"); sys.exit(1)
 
-    if args.modo == "faceis":
-        marcados = gerar_faceis(itens, mascara, args.n)
-    elif args.modo == "dificeis":
-        marcados = gerar_dificeis(itens, mascara, args.n)
-    elif args.modo == "aleatorio":
-        marcados = gerar_aleatorio(itens, mascara, args.n, args.seed)
-    elif args.modo == "intervalo-b":
-        marcados = gerar_intervalo_b(itens, mascara, args.b_min, args.b_max)
-    elif args.modo == "coerente":
-        marcados = gerar_coerente(itens, mascara, args.n)
-    elif args.modo == "incoerente":
-        marcados = gerar_incoerente(itens, mascara, args.n, args.seed)
-    else:
-        print(f"[ERRO] modo desconhecido"); sys.exit(1)
+    fn = {
+        "faceis":      lambda: gerar_faceis(itens, mascara, args.n),
+        "dificeis":    lambda: gerar_dificeis(itens, mascara, args.n),
+        "aleatorio":   lambda: gerar_aleatorio(itens, mascara, args.n, args.seed),
+        "intervalo-b": lambda: gerar_intervalo_b(itens, mascara, args.b_min, args.b_max),
+        "coerente":    lambda: gerar_coerente(itens, mascara, args.n),
+        "incoerente":  lambda: gerar_incoerente(itens, mascara, args.n, args.seed),
+    }[args.modo]
+    marcados = fn()
 
     vetor = montar_vetor(itens, marcados)
     info = resumo(itens, mascara, marcados)
-
-    cmd_estimador = (
-        f"python estimador_nota.py --area {args.area} --ano {args.ano} "
-        f"--tipo {args.tipo} --cor {args.cor} --vetor {vetor}"
-    )
-    if args.area == "LC":
-        cmd_estimador += f" --mascara {mascara}"
 
     saida = {
         "area": args.area, "ano": args.ano, "tipo": args.tipo, "cor": args.cor,
@@ -277,38 +232,16 @@ def main():
         "posicoes_marcadas": info["posicoes"],
         "questoes_marcadas": info["questoes"],
         "media_b_acertos":   info["media_b_acertos"],
-        "comando_estimador": cmd_estimador,
     }
-
     if args.json:
         print(json.dumps(saida, ensure_ascii=False, indent=2)); return
 
-    print(f"\n{'='*68}")
-    print(f"  Vetor estratégico — {args.area} {args.ano} {args.tipo} {args.cor} | modo: {args.modo}")
-    print(f"{'='*68}\n")
-    print(f"  Tamanho do vetor:  {len(vetor)}")
-    print(f"  Questões marcadas: {info['n_marcadas']}")
-    print(f"  Média b acertos:   {info['media_b_acertos']:.3f}")
+    print(f"\n  Vetor estrategico v2 | {args.area} {args.ano} {args.tipo} {args.cor} | {args.modo}")
+    print(f"  Tamanho={len(vetor)}  Marcadas={info['n_marcadas']}  media_b={info['media_b_acertos']:.3f}")
+    print(f"  Vetor:   {vetor}")
     if args.area == "LC":
-        print(f"  Língua escolhida:  {args.lingua}")
-    print(f"\n  Vetor:")
-    print(f"    {vetor}")
-    if args.area == "LC":
-        print(f"\n  Máscara:")
-        print(f"    {mascara}")
-
-    print(f"\n  Posições marcadas (1-based):")
-    print(f"    {info['posicoes']}")
-
-    print(f"\n  Detalhe das questões marcadas:")
-    print(f"    {'Pos':>4}  {'b':>6}  {'TP_LING':<8}  CO_ITEM")
-    for q in info["questoes"]:
-        b_str = f"{q['b']:.3f}" if q['b'] is not None else " —  "
-        print(f"    {q['pos']:>4}  {b_str:>6}  {q['tp_ling']:<8}  {q['co_item']}")
-
-    print(f"\n  Comando para o estimador:")
-    print(f"    {cmd_estimador}")
-    print()
+        print(f"  Mascara: {mascara}")
+    print(f"  Posicoes: {info['posicoes']}")
 
 
 if __name__ == "__main__":
