@@ -10,7 +10,7 @@ Se o modelo nao existe ou falha, retorna erro estruturado (sem mascarar).
 import os
 
 try:
-    import estimador_lgb_v2 as e_lgb
+    import estimador_lgb as e_lgb
     _LGB_OK = True
 except Exception as e:
     _LGB_OK = False

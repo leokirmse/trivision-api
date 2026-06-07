@@ -23,8 +23,8 @@ from pydantic import BaseModel
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-import engine_tri_v2 as engine
-import gerar_vetor_estrategico_v2 as gve
+import engine_tri as engine
+import gerar_vetor_estrategico as gve
 
 engine.configurar(dir_modelos="modelos_v2",
                    mapeamento_path="mapeamento_canonico_v6.json")
